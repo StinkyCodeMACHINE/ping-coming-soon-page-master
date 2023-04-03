@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;600;700&display=swap" rel="stylesheet">
+  
+  <title>Frontend Mentor | Ping coming soon page</title>
+  
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Libre Franklin', sans-serif;
+      font-size: 20px;
+      background-color: #ffffff;
+      display:grid;
+      justify-items: center;
+      height:100vh;
+      text-align: center;
+      font-weight: 300;
+      grid-template-rows: 5fr 1fr;
+    }
+
+    main {
+      display: grid;
+      justify-items: center;
+    }
+
+    main img:nth-of-type(1) {
+      width: 64px;
+      height: 20px;
+      margin-top: 3rem; 
+    }
+
+    h1 {
+      margin-bottom: 0.8rem;
+    }
+
+    h1 span {
+      color: hsl(0, 0%, 59%);
+      font-weight: 300;
+    }
+
+    main>div {
+      font-size: 0.9rem;
+    }
+
+    form {
+      margin-top: 1.5rem;
+      width: 42%;
+      display: flex;
+      position: relative;
+    }
+
+    input[type="email"] {
+      color: hsl(0, 0%, 59%);
+      padding: 1rem 2rem 1rem 2rem;
+      border:1px solid hsl(0, 0%, 59%);
+      width: 58%;
+      outline: none;
+      border-radius: 2rem;
+    }
+
+    input[type="submit"] {
+      color: #ffffff;
+      border:none;
+      border-radius: 2rem;
+      padding: 1rem 3.5rem;
+      margin-left:0.7rem;
+      background-color: hsl(223, 87%, 63%);
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .error-message {
+      display: none;
+      font-style: italic;
+      width: 100%;
+      text-align: left;
+      margin-top: 0.3rem;
+      font-size: 0.5rem;
+      color: hsl(354, 100%, 66%);
+      margin-left: 2rem;
+      position: absolute;
+      top: 100%;
+    } 
+
+    .error-message.displayed {
+      display:block;
+    }
+
+    main img:nth-of-type(2) {
+      margin-top: 4rem;
+      width: 42%;
+    }
+
+    footer {
+      display: grid;
+      align-items: end;
+      padding-bottom: 1.5rem;
+    }
+
+    footer>div:nth-of-type(2) {
+      font-size: 0.7rem;
+      color: hsl(0, 0%, 59%);
+    }
+
+    @media (max-width: 900px) {
+      h1 {
+        font-size: 1.7rem;
+        margin-top: 1.7rem;
+      }
+
+      main>div:nth-of-type(1) {
+        font-size: 0.8rem;
+      }
+
+      form {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      input[type="email"] {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .error-message {
+        position:static;
+      }
+
+      input[type="submit"] {
+        margin: 0.7rem 0;
+      }
+
+      main img:nth-of-type(2) {
+        width: 315px;
+      }
+
+      
+    }
+
+    
+
+
+  </style>
+</head>
+<body>
+  <main>
+    <img src="images/logo.svg" alt="">
+    <h1><span>We are launching</span> soon!</h1>
+    <div>Subscribe and get notified</div>
+    <form action="https://google.com">
+      <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="Your email address..." required>
+      <div class="error-message">Please provide a valid error address</div>
+      <input id="submit" type="submit" value="Notify Me">
+    </form>
+    
+    
+    <img src="images/illustration-dashboard.png" alt="">
+  </main>
+
+ 
+
+  <footer>
+    <div class="links">
+      <!-- no icons me sad :( -->
+    </div>
+    <div>&copy; Copyright Ping. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const email = document.querySelector('input[type="email"]');
+    const errorMessage = document.querySelector('.error-message');
+
+    email.addEventListener('invalid',  (e)=> {
+      e.preventDefault();
+      errorMessage.classList.add('displayed');
+      email.style.border = "1px solid hsl(354, 100%, 66%)";
+    })
+
+
+  </script>
+</body>
+</html>
